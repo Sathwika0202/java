@@ -1,0 +1,91 @@
+//bubble sort --- time complexity -- O(n^2)
+import java.util.*;
+public class Sort{
+    public static void printArr(int arr[]){
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[]args){
+        // int arr[] = {2,1,5,3};
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the no. of elements in the array: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Now enter the elemants in the array: ");
+
+        for(int k=0;k<arr.length;k++){
+            arr[k] = sc.nextInt();
+        }
+        printArr(arr);
+        //bubble sort
+        for(int i=0 ; i<arr.length-1 ; i++){
+            for(int j=0 ; j<arr.length-1-i ; j++){
+                //swap
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        printArr(arr);
+
+
+    }
+}
+
+***********************************************
+
+//selection sort  ------------- time complexity -- O(n^2)
+
+import java.util.*;
+public class Sort{
+    public static void printArr(int arr[]){
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[]args){
+        // int arr[] = {2,1,5,3};
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the no. of elements in the array: ");
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        System.out.println("Now enter the elemants in the array: ");
+
+        for(int k=0;k<arr.length;k++){
+            arr[k] = sc.nextInt();
+        }
+        printArr(arr);
+        //selection sort
+        for(int i=0 ; i<arr.length ; i++){
+            int smallest = i;
+            for(int j=i+1 ; j<arr.length ; j++){
+                if(arr[smallest]>arr[j]){
+                    smallest = j;
+                }
+
+            }
+            int temp = arr[smallest];
+            arr[smallest] = arr[i];
+            arr[i] = temp;
+        }
+        
+        printArr(arr);
+
+
+    }
+}
+
+
+
+
+
+********************************************************************
+
+//insertion sort 
