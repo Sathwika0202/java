@@ -274,4 +274,41 @@ class Main {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Remove duplicates from string  (input: aabbcdsd         output: abcds)
+
+
+class Main {
+    
+    public static boolean[] map=new boolean[26];
+    
+    public static void removeDuplicates(String str, int idx, String newString){
+        if(idx==str.length()){
+            System.out.println(newString);
+            return;
+        }
+        
+        char currChar = str.charAt(idx);
+        if(map[currChar-'a']==true){
+            removeDuplicates(str,idx+1,newString);
+        }else{
+            map[currChar-'a']=true;
+            newString+=currChar;
+            removeDuplicates(str,idx+1,newString);
+            
+        }
+    }
+    
+    public static void main(String[] args) {
+        
+        String sr="aabbcdsd";
+        removeDuplicates(sr,0,"");
+    }
+}
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 //
