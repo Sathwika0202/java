@@ -311,4 +311,44 @@ class Main {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//Print all subsequences of a string
+(input : abc  
+output : 
+abc
+ab
+ac
+a
+bc
+b
+c  )
+
+
+class Main {
+    
+    public static void subSequence(String str, int idx, String newString){
+        if(idx==str.length()){
+            System.out.println(newString);
+            return;
+        }
+        char currchar = str.charAt(idx);
+        subSequence(str,idx+1,newString+currchar);
+        subSequence(str,idx+1,newString);
+        
+        
+    }
+    
+    public static void main(String[] args) {
+        
+        String sr="abc";
+        subSequence(sr,0,"");
+    }
+}
+
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 //
