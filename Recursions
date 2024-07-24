@@ -459,7 +459,8 @@ public class Main{
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//count total paths in a maze to move from(0,0) to (m,n).
+//count total paths in a maze to move from(0,0) to (m,n). 
+formula: (m + n – 2)C(m – 1).
 
 public class Main{
     public static int countPaths(int i, int j , int n , int m){
@@ -480,6 +481,36 @@ public class Main{
     public static void main(String[]args){
         int n=3,m=4;
         int paths = countPaths(0,0,n,m);
+        System.out.println(paths);
+    }
+}
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Place tiles of size (1,m) in a floor of size (n*m).
+
+public class Main{
+    public static int countTiles(int n , int m){
+        if(n==m){
+            return 2;
+            
+        }
+        if(n<m){
+            return 1;
+        }
+        
+        int vertPlace=countTiles(n-m,m);
+        int horPlac=countTiles(n-1,m);
+        return vertPlace+horPlac;
+    }
+    
+    public static void main(String[]args){
+        int n=4,m=2;
+        int paths = countTiles(n,m);
         System.out.println(paths);
     }
 }
