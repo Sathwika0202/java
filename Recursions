@@ -421,3 +421,65 @@ class apnaclg {
         keypadComb(0,str,"");
     }
 }
+
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//Print all possible permutations of a string 
+
+public class Main{
+    public static void printPerm(String str, String permute){
+        if(str.length()==0){
+            System.out.println(permute);
+            return;
+        }
+        
+        for(int i =0 ; i<str.length() ; i++){
+            char currChar = str.charAt(i);
+            String s1 = str.substring(0,i)+str.substring(i+1);
+            printPerm(s1,permute+currChar);
+        }
+    }
+    
+    public static void main(String[]args){
+        String str = "abcd";
+        printPerm(str,"");
+    }
+}
+
+
+
+
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+//count total paths in a maze to move from(0,0) to (m,n).
+
+public class Main{
+    public static int countPaths(int i, int j , int n , int m){
+        
+        if(i == n || j == m){
+            return 0;
+        }
+        if(i == n-1 && j == m-1){
+            return 1;
+        }
+        
+        int downPath = countPaths(i+1,j,n,m);
+        int rightPath = countPaths(i,j+1,n,m);
+        return (downPath + rightPath);
+        
+    }
+    
+    public static void main(String[]args){
+        int n=3,m=4;
+        int paths = countPaths(0,0,n,m);
+        System.out.println(paths);
+    }
+}
