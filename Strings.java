@@ -59,7 +59,60 @@ public class Main{
 
 /*-------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------*/
-//
+//substrings
+
+public class Main{
+    public static void main(String[]args){
+        String sent = "My name is Tony";
+        // substring(begin index , end index);     end index is exclusive
+        String name = sent.substring(11, sent.length());
+        System.out.println(name);
+        
+    }
+}
+
+
+public class Main{
+    public static void main(String[]args){
+        String sent = "TonyStark";
+        // substring(begin index , end index);     end index is exclusive
+        String name = sent.substring(4);
+        System.out.println(name);
+        
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------*/
+//StringBuilder basic functions
+public class Main{
+    public static void main(String[]args){
+        StringBuilder sb = new StringBuilder("Tony");
+        System.out.println(sb);
+        
+        // char at index 0
+        System.out.println(sb.charAt(0));
+        
+        //set char at index 0
+        sb.setCharAt(0,'P');
+        System.out.println(sb);
+        
+        // insert a char at index 0
+        sb.insert(3,'n');
+        System.out.println(sb);
+        
+        //delete the extra 'n'
+        //delete(begin index, end index)     end index is exclusive
+        sb.delete(3,4);
+        System.out.println(sb);
+        
+        sb.setCharAt(0,'T');
+        sb.delete(2,3);
+        System.out.println(sb);
+        
+        
+    }
+}
 
 
 
