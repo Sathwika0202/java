@@ -3,30 +3,40 @@
   output: aaaaabbbbbbbbbb                 output: ccccccbbbhh      */
 
 
-import java.util.*;
-class HelloWorld {
+public class ExpandString {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String inp = sc.next();
-        int len = 0;
-        while(len<inp.length()){
-            int range = 0;
-            char p = inp.charAt(len);
-            int w = inp.charAt(len+1)-'0';
-            int w1 = inp.charAt(len+2)-'0';
-            if(w1<10 && w1>=0){
-                range = w1+w*10;
-                len+=3;
-            }else{
-                len+=2;
-                range = w;
+        String input1 = "a5b10";
+        String input2 = "c6b3h2";
+
+        System.out.println(expand(input1)); // Output: aaaaabbbbbbbbbb
+        System.out.println(expand(input2)); // Output: ccccccbbbhh
+    }
+
+    public static String expand(String input) {
+        StringBuilder output = new StringBuilder();
+        int i = 0;
+
+        while (i < input.length()) {
+            char currentChar = input.charAt(i);
+            i++;
+            int count = 0;
+
+            // Handling multi-digit numbers
+            while (i < input.length() && Character.isDigit(input.charAt(i))) {
+                count = count * 10 + (input.charAt(i) - '0');
+                i++;
             }
-            for(int i=0; i<range;i++){
-                System.out.print(p);
+
+            // Append the character 'count' number of times
+            for (int j = 0; j < count; j++) {
+                output.append(currentChar);
             }
         }
+
+        return output.toString();
     }
 }
+
 
 /* ```````````````````````````````````````````````````````````````````````````````````````````````
 ````````````````````````````````````````````````````````````````````````````````````````````````*/
