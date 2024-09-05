@@ -41,5 +41,32 @@ public class ExpandString {
 /* ```````````````````````````````````````````````````````````````````````````````````````````````
 ````````````````````````````````````````````````````````````````````````````````````````````````*/
 
+// two sum 
 
+import java.util.HashMap;
+import java.util.Arrays;
+class Maps {
+    public static int[] twoSum(int[] arr, int target){
+        HashMap<Integer,Integer>map = new HashMap<>();
+        int n =arr.length;
+        
+        for(int i = 0; i < n; i++){
+            map.put(arr[i],i);
+            
+        }
+        for(int i=0;i<n;i++){
+            int compliment = target-arr[i];
+            if(map.containsKey(compliment) && map.get(compliment)!=i){
+                return new int[] {i,map.get(compliment)};
+                
+            }
+        }
+        return new int[]{};
+    }
+    public static void main(String[] args) {
+        int arr[]= {3,2,1,4};
+        int target = 7;
+        System.out.println(Arrays.toString(twoSum(arr,target)));
+    }
+}
 
