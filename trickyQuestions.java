@@ -70,3 +70,30 @@ class Maps {
     }
 }
 
+
+/* ```````````````````````````````````````````````````````````````````````````````````````````````
+````````````````````````````````````````````````````````````````````````````````````````````````*/
+
+//sum of multiple of 1 to 10 of p.
+
+public class Main{
+    /*public static int multiple(int i,int n,int sum){
+        
+        if(i==n+1){
+            return sum;
+        }
+        sum += n*i;
+        return (multiple(i+1,n,sum));
+    }
+    public static void main(String[]args){
+        System.out.println(multiple(1,10,0));
+    }*/
+    public static void main(String[]args){
+        int p = 10;
+        int n = 10;
+        int sum = (n*(n+1))/2;
+        sum*=p;
+        
+        System.out.println(sum);
+    }
+}
