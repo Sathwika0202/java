@@ -97,3 +97,45 @@ public class Main{
         System.out.println(sum);
     }
 }
+
+
+
+/* ```````````````````````````````````````````````````````````````````````````````````````````````
+````````````````````````````````````````````````````````````````````````````````````````````````*/
+
+// find the mode of given data taking input as list.
+
+
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        String[] sa = s.split(",");
+        for(String a:sa){
+            list.add(Integer.parseInt(a));
+        }
+        
+        System.out.println(list);
+        //findMode(list);
+        System.out.println(findMode(list));
+    }
+    public static int findMode(ArrayList<Integer>data){
+        HashMap<Integer,Integer> tcs = new HashMap<>();
+        for(int num : data){
+            tcs.put(num, tcs.getOrDefault(num, 0) + 1);
+        }
+        int mode = data.get(0);
+        int maxCount = Integer.MIN_VALUE;
+        for(Map.Entry<Integer,Integer> entry : tcs.entrySet()){
+            if(entry.getValue() > maxCount){
+                mode = entry.getKey();
+            }
+        }
+        
+        return mode;
+        
+    }
+}
