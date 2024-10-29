@@ -67,3 +67,45 @@ public class Main{
         return maxsum;
     }
 }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// print longest substring without repeating characters
+
+import java.util.*;
+public class Main{
+    public static void main(String[]args){
+        String s = "cadbzabcd";
+        
+        System.out.println(longestSubstring(s));
+    }
+    public static String longestSubstring(String s ){
+        HashMap<Character,Integer> hash = new HashMap<>();
+        
+        int n = s.length();
+        int l = 0;
+        int r = 0;
+        int maxlen = 0;
+        int L = 0;
+        int R = 0;
+        
+        while(r < n){
+            char ch = s.charAt(r);
+            if(hash.containsKey(ch) && hash.get(ch)>=l){
+                l = hash.get(ch) + 1;
+            }
+            if(maxlen<r-l+1){
+                maxlen = (r-l+1);
+                L = l;
+                R = r;
+            }
+            
+            hash.put(ch,r);
+            
+            r++; 
+        }
+       
+        return s.substring(L,R+1);
+    }
+}
