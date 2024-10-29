@@ -27,3 +27,43 @@ public class Main{
         System.out.println(maxlen+" "+L+" "+R);
     }
 }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+// maximum points you can obtain from cards.
+// k is no. of cards to be considered. you can count consecutive cards.
+//u can count first cards and last cards imagining they are circular i.e u can consider (6,2,1,7) from [6,2,3,4,7,2,1,7,1] 
+
+public class Main{
+    public static void main(String[]args){
+        int[] arr = {6,2,3,4,7,2,1,7,1};
+        int k = 4;
+        
+        System.out.println(longestSubarray(arr,k));
+    }
+    public static int longestSubarray(int[] arr , int k ){
+        int n = arr.length;
+        int lsum = 0;
+        int rsum = 0;
+        int l = 0;
+        int r = n-1;
+        int maxsum = 0;
+        
+        for(int i = 0; i < k ; i++){
+            lsum += arr[i];
+            
+        }
+        maxsum = lsum;
+        for(int i = k-1 ; i >= 0 ; i--){
+            lsum -= arr[i];
+            rsum += arr[r];
+            if(maxsum < lsum+rsum){
+                maxsum = lsum+rsum;
+            }
+            r--;
+        }
+        
+        
+        return maxsum;
+    }
+}
